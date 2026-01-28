@@ -67,6 +67,9 @@
         productName: "IlkProje",
         productVersion: "1.0",
         showBanner: unityShowBanner,
+        // Disable server-side decompression for GitHub Pages compatibility
+        // Files will be decompressed by the loader instead
+        compressedFormat: "gzip"
       };
 
       // By default, Unity keeps WebGL canvas render target size matched with
