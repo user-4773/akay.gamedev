@@ -1,0 +1,42 @@
+# Unity WebGL gzip compression configuration
+# This ensures that .gz files are served with the correct Content-Encoding header
+
+<IfModule mod_mime.c>
+  # Serve gzip compressed JS files with proper MIME type and encoding
+  <FilesMatch "\.js\.gz$">
+    RemoveType .gz
+    AddType "application/javascript" .gz
+    AddEncoding gzip .gz
+  </FilesMatch>
+
+  # Serve gzip compressed WebAssembly files with proper MIME type and encoding
+  <FilesMatch "\.wasm\.gz$">
+    RemoveType .gz
+    AddType "application/wasm" .gz
+    AddEncoding gzip .gz
+  </FilesMatch>
+
+  # Serve gzip compressed data files with proper MIME type and encoding
+  <FilesMatch "\.data\.gz$">
+    RemoveType .gz
+    AddType "application/octet-stream" .gz
+    AddEncoding gzip .gz
+  </FilesMatch>
+
+  # Serve gzip compressed symbols files with proper MIME type and encoding
+  <FilesMatch "\.symbols\.json\.gz$">
+    RemoveType .gz
+    AddType "application/octet-stream" .gz
+    AddEncoding gzip .gz
+  </FilesMatch>
+</IfModule>
+
+# Ensure mod_rewrite is available
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Enable CORS for WebAssembly and other Unity resources
+  <FilesMatch "\.(wasm|data|js|unityweb)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
