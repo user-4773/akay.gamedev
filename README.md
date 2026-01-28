@@ -12,3 +12,7 @@ Troubleshooting:
 - Make sure the Build folder contains the same relative paths as produced by Unity.
 
 If you want, I can instead move the site files into a /docs folder and configure Pages to serve from `docs/`.
+
+## Additional Resources
+
+- **[GitHub Copilot Pro Guide](COPILOT_PRO_GUIDE.md)**: Comprehensive documentation about GitHub Copilot Pro, including information about premium requests, usage limits, and how to manage your subscription.
