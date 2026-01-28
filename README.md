@@ -10,5 +10,6 @@ Deployment notes:
 Troubleshooting:
 - If the embedded build does not load, open the browser console to check for 404 or MIME type errors — these usually indicate missing files or incorrect paths.
 - Make sure the Build folder contains the same relative paths as produced by Unity.
+- **Brotli Compression Issues**: If you see MIME type errors for `.br` files on GitHub Pages, you may need to rebuild your Unity project with "Compression Format" set to "Gzip" or "Disabled" instead of "Brotli" in Unity's Build Settings → Player Settings → Publishing Settings. GitHub Pages may not properly serve Brotli-compressed files without custom server configuration.
 
 If you want, I can instead move the site files into a /docs folder and configure Pages to serve from `docs/`.
